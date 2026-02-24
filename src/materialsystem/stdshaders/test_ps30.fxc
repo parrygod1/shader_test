@@ -1,0 +1,21 @@
+#include "common_ps_fxc.h"
+#include "common_flashlight_fxc.h"
+#include "common_lightmappedgeneric_fxc.h"
+#include "shader_constant_register_map.h"
+
+
+// Define the input from the Vertex Shader
+struct PS_INPUT {
+    float2 texCoord : TEXCOORD0;
+    float4 color    : COLOR0;
+};
+
+// The Texture Sampler
+sampler BaseTextureSampler : register(s0);
+
+// The main function
+float4 main(PS_INPUT i) : COLOR {
+    float4 texColor = tex2D(BaseTextureSampler, i.texCoord);
+
+    return i.color;
+}
