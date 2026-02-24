@@ -13,5 +13,5 @@ sampler BaseTextureSampler : register(s0);
 float4 main(PS_INPUT i) : COLOR {
     float4 texColor = tex2D(BaseTextureSampler, i.texCoord);
 
-    return i.color;
+    return texColor;
 }
